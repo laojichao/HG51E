@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:background="#c8d6e5"
     android:gravity="center"
     tools:context=".MainActivity">
 
@@ -14,19 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_margin="25dp"
         android:gravity="center"
         android:padding="10dp"
-        app:shape_radius="20dp"
+        app:shape_radius="5dp"
         app:shape_strokeGradientColor="#81ecec"
         app:shape_strokeGradientOrientation="topToBottom"
-        app:shape_strokePressedColor="@android:color/black"
         app:shape_strokeSize="2dp"
         app:shape_strokeGradientStartColor="#a29bfe"
         app:shape_solidGradientEndColor="#74b9ff"
         app:shape_solidGradientOrientation="topToBottom"
         app:shape_solidPressedColor="#5A8DDF"
-        app:shape_solidGradientStartColor="#49DAFA"
         app:shape_type="rectangle" >
 
     <TableLayout
@@ -54,17 +51,17 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
 
             <com.hjq.shape.view.ShapeTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:text="@string/route_address"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp" />
 
             <com.hjq.shape.view.ShapeEditText
@@ -75,31 +72,31 @@
                 android:layout_weight="7"
                 android:text="@string/ip"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp"
-                app:shape_radius="5dp"
-                app:shape_shadowColor="#AA5A8DDF"
-                app:shape_shadowSize="10dp"
-                app:shape_solidColor="#FFFFFF"
+                app:shape_radius="10dp"
+                app:shape_strokeGradientColor="#00d8d6"
+                app:shape_strokeGradientOrientation="topToBottom"
+                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokeSize="2dp"
+                app:shape_strokeGradientStartColor="#70a1ff"
                 app:shape_type="rectangle"/>
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
 
             <com.hjq.shape.view.ShapeTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:text="@string/admin_account"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp" />
 
 
@@ -111,29 +108,29 @@
                 android:layout_weight="7"
                 android:gravity="center"
                 android:enabled="false"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp"
-                app:shape_radius="5dp"
-                app:shape_shadowColor="#AA5A8DDF"
-                app:shape_shadowSize="10dp"
-                app:shape_solidColor="#FFFFFF"
+                app:shape_radius="10dp"
+                app:shape_strokeGradientColor="#00d8d6"
+                app:shape_strokeGradientOrientation="topToBottom"
+                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokeSize="2dp"
+                app:shape_strokeGradientStartColor="#70a1ff"
                 app:shape_type="rectangle"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
             <com.hjq.shape.view.ShapeTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:text="@string/admin_password"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp" />
 
             <com.hjq.shape.view.ShapeEditText
@@ -144,14 +141,14 @@
                 android:layout_weight="7"
                 android:gravity="center"
                 android:enabled="false"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textColor="@android:color/black"
+                android:textColor="#7158e2"
                 android:textSize="14sp"
-                app:shape_radius="5dp"
-                app:shape_shadowColor="#AA5A8DDF"
-                app:shape_shadowSize="10dp"
-                app:shape_solidColor="#FFFFFF"
+                app:shape_radius="10dp"
+                app:shape_strokeGradientColor="#00d8d6"
+                app:shape_strokeGradientOrientation="topToBottom"
+                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokeSize="2dp"
+                app:shape_strokeGradientStartColor="#70a1ff"
                 app:shape_type="rectangle"/>
 
         </TableRow>
@@ -177,10 +174,9 @@
                 app:shape_solidGradientEndColor="#7efff5"
                 app:shape_solidGradientOrientation="topToBottom"
                 app:shape_solidPressedColor="#cd84f1"
-                app:shape_solidGradientStartColor="#32ff7e"
                 app:shape_strokeGradientColor="#a4b0be"
                 app:shape_strokeGradientOrientation="topToBottom"
-                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokePressedColor="#7158e2"
                 app:shape_strokeSize="2dp"
                 app:shape_strokeGradientStartColor="#5f27cd"
                 app:shape_type="rectangle" />
@@ -201,10 +197,9 @@
                 app:shape_solidGradientEndColor="#7efff5"
                 app:shape_solidGradientOrientation="topToBottom"
                 app:shape_solidPressedColor="#cd84f1"
-                app:shape_solidGradientStartColor="#32ff7e"
                 app:shape_strokeGradientColor="#a4b0be"
                 app:shape_strokeGradientOrientation="topToBottom"
-                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokePressedColor="#7158e2"
                 app:shape_strokeSize="2dp"
                 app:shape_strokeGradientStartColor="#5f27cd"
                 app:shape_type="rectangle" />

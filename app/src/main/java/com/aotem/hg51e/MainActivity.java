@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             if (clipboardManager != null) {
                 clipboardManager.setPrimaryClip(ClipData.newPlainText("password", password));
-                Toaster.showShort("已复制到剪切板");
             }
         }
     }

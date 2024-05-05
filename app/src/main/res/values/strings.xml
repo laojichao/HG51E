@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HG51E</string>
+    <string name="host">IP地址</string>
+    <string name="get">获取密码</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="ip">192.168.1.1</string>
+    <string name="tips">该软件仅供学习使用，请勿用于非法用途，否则后果自负！</string>
+    <string name="deviceinfo">HG51E</string>
+    <string name="route_address">路由地址:</string>
+    <string name="admin_password">超级密码:</string>
+    <string name="admin_account">超级账号:</string>
+    <string name="copy">复制密码</string>
+</resources>

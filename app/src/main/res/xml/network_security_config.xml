@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--上线使用-->
+<network-security-config
+    xmlns:tools="http://schemas.android.com/tools">
+    <base-config cleartextTrafficPermitted="true" />
+    <trust-anchors tools:ignore="NetworkSecurityConfig">
+        <certificates src="system" overridePins="true" />
+        <certificates src="user" overridePins="true" />
+    </trust-anchors>
+</network-security-config>
+<!--开发使用-->
+<!--<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" overridePins="true" /> &lt;!&ndash;信任系统证书&ndash;&gt;
+            <certificates src="user" overridePins="true" /> &lt;!&ndash;信任用户证书&ndash;&gt;
+        </trust-anchors>
+    </base-config>
+</network-security-config>-->
+
+
+

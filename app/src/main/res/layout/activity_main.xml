@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="#c8d6e5"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        app:shape_radius="20dp"
+        app:shape_strokeGradientColor="#81ecec"
+        app:shape_strokeGradientOrientation="topToBottom"
+        app:shape_strokePressedColor="@android:color/black"
+        app:shape_strokeSize="2dp"
+        app:shape_strokeGradientStartColor="#a29bfe"
+        app:shape_solidGradientEndColor="#74b9ff"
+        app:shape_solidGradientOrientation="topToBottom"
+        app:shape_solidPressedColor="#5A8DDF"
+        app:shape_solidGradientStartColor="#49DAFA"
+        app:shape_type="rectangle" >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.hjq.shape.view.ShapeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:text="@string/deviceinfo"
+                android:textColor="#0984e3"
+                android:textSize="20sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.hjq.shape.view.ShapeTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/route_address"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <com.hjq.shape.view.ShapeEditText
+                android:id="@+id/et_host"
+                android:hint="@string/host"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="@string/ip"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:shape_radius="5dp"
+                app:shape_shadowColor="#AA5A8DDF"
+                app:shape_shadowSize="10dp"
+                app:shape_solidColor="#FFFFFF"
+                app:shape_type="rectangle"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.hjq.shape.view.ShapeTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/admin_account"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+
+            <com.hjq.shape.view.ShapeEditText
+                android:id="@+id/et_account"
+                android:hint="@string/account"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:gravity="center"
+                android:enabled="false"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:shape_radius="5dp"
+                app:shape_shadowColor="#AA5A8DDF"
+                app:shape_shadowSize="10dp"
+                app:shape_solidColor="#FFFFFF"
+                app:shape_type="rectangle"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <com.hjq.shape.view.ShapeTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/admin_password"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <com.hjq.shape.view.ShapeEditText
+                android:id="@+id/et_password"
+                android:hint="@string/password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:gravity="center"
+                android:enabled="false"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:shape_radius="5dp"
+                app:shape_shadowColor="#AA5A8DDF"
+                app:shape_shadowSize="10dp"
+                app:shape_solidColor="#FFFFFF"
+                app:shape_type="rectangle"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.hjq.shape.view.ShapeButton
+                android:id="@+id/btn_get"
+                android:text="@string/get"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="#7158e2"
+                android:textSize="14sp"
+                app:shape_radius="5dp"
+                app:shape_solidGradientEndColor="#7efff5"
+                app:shape_solidGradientOrientation="topToBottom"
+                app:shape_solidPressedColor="#cd84f1"
+                app:shape_solidGradientStartColor="#32ff7e"
+                app:shape_strokeGradientColor="#a4b0be"
+                app:shape_strokeGradientOrientation="topToBottom"
+                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokeSize="2dp"
+                app:shape_strokeGradientStartColor="#5f27cd"
+                app:shape_type="rectangle" />
+
+            <com.hjq.shape.view.ShapeButton
+                android:id="@+id/btn_copy"
+                android:text="@string/copy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="#7158e2"
+                android:textSize="14sp"
+                app:shape_radius="5dp"
+                app:shape_solidGradientEndColor="#7efff5"
+                app:shape_solidGradientOrientation="topToBottom"
+                app:shape_solidPressedColor="#cd84f1"
+                app:shape_solidGradientStartColor="#32ff7e"
+                app:shape_strokeGradientColor="#a4b0be"
+                app:shape_strokeGradientOrientation="topToBottom"
+                app:shape_strokePressedColor="@android:color/black"
+                app:shape_strokeSize="2dp"
+                app:shape_strokeGradientStartColor="#5f27cd"
+                app:shape_type="rectangle" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.hjq.shape.view.ShapeTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="@string/tips"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="10sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+</LinearLayout>

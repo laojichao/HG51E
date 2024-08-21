@@ -53,6 +53,7 @@ public class RetrofitClient {
                     .connectionPool(connectionPool)
                     .proxy(Proxy.NO_PROXY)
                     .addInterceptor(new BaseInterceptor(headMap))//添加头部信息
+//                    .addNetworkInterceptor(new LoggingInterceptor())
                     .build();
         }
         return mOkHttpClient;

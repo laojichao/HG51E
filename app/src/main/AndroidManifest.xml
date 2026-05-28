@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.HG51E"
-        android:name=".App"
+        android:name=".HG51EApplication"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"

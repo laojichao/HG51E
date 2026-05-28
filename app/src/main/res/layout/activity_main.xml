@@ -73,6 +73,7 @@
                 android:layout_weight="7"
                 android:text="@string/ip"
                 android:gravity="center"
+                android:inputType="textUri"
                 android:textColor="#7158e2"
                 android:textSize="14sp"
                 app:shape_radius="10dp"

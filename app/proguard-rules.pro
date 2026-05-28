@@ -20,3 +20,10 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.hjq.shape.** {*;}
+
+# Gson model — reflection-based deserialization needs field names preserved
+-keep class com.aotem.hg51e.data.model.User { *; }
+-keep class com.aotem.hg51e.data.model.User$DataBean { *; }
+
+# Retrofit API interface — keep methods + annotations for dynamic proxy
+-keep interface com.aotem.hg51e.data.remote.ApiService { *; }

@@ -2,11 +2,12 @@
 <!--上线使用-->
 <network-security-config
     xmlns:tools="http://schemas.android.com/tools">
-    <base-config cleartextTrafficPermitted="true" />
-    <trust-anchors tools:ignore="NetworkSecurityConfig">
-        <certificates src="system" overridePins="true" />
-        <certificates src="user" overridePins="true" />
-    </trust-anchors>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors tools:ignore="NetworkSecurityConfig">
+            <certificates src="system" overridePins="true" />
+            <certificates src="user" overridePins="true" />
+        </trust-anchors>
+    </base-config>
 </network-security-config>
 <!--开发使用-->
 <!--<network-security-config>

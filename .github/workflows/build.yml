@@ -57,5 +57,7 @@ jobs:
             ### 构建信息
             - Commit: ${{ github.sha }}
             - 构建时间: ${{ github.event.head_commit.timestamp }}
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -35,7 +35,7 @@ app/src/main/java/com/aotem/hg51e/
 │   ├── remote/
 │   │   ├── ApiService.kt         # Retrofit 接口定义
 │   │   ├── BaseInterceptor.kt    # OkHttp 拦截器，添加通用 Header
-│   │   └── RetrofitClient.kt     # Retrofit 单例管理，支持动态 baseUrl
+│   │   └── HostUrl.kt            # 用户输入地址规范化（补协议、校验合法性）
 │   └── repository/
 │       └── UserRepositoryImpl.kt # 数据仓库，封装 API 调用
 ├── di/
@@ -62,13 +62,14 @@ GET http://{host}/boaform/web_query_user_show.cgi
 
 1. 检查是否有活跃网络连接
 2. 检测 VPN 代理，若有则提示关闭
-3. 仅允许 WiFi 和移动数据网络发起请求
+3. 允许 WiFi、移动数据和以太网网络发起请求
 
 ### 网络配置
 
 - `NetworkModule` 中设置了 `Proxy.NO_PROXY`，强制绕过系统代理
 - `BaseInterceptor` 添加 `Content-Type: application/json;charset=UTF-8` 请求头
-- `RetrofitClient` 支持动态切换 baseUrl，用于连接不同地址的光猫
+- `UserRepositoryImpl` 按 host 缓存 Retrofit 服务实例，支持连接不同地址的光猫
+- toast 等一次性提示通过 `MainViewModel.messages`（SharedFlow）发出，不随状态重收集重复弹出
 
 ## 构建说明
 

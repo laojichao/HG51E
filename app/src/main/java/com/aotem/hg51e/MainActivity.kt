@@ -1,15 +1,19 @@
 package com.aotem.hg51e
 
 import android.content.ClipData
+import android.content.ClipDescription
 import android.content.ClipboardManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.aotem.hg51e.data.remote.HostUrl
 import com.aotem.hg51e.ui.main.MainViewModel
 import com.aotem.hg51e.ui.main.UiState
 import com.hjq.shape.view.ShapeButton
@@ -20,10 +24,6 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    companion object {
-        private const val DEFAULT_HOST = "192.168.1.1"
-    }
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         btnCopy.setOnClickListener { onCopyClicked() }
 
         observeUiState()
+        observeMessages()
     }
 
     private fun observeUiState() {
@@ -69,14 +70,12 @@ class MainActivity : AppCompatActivity() {
                         is UiState.Success -> {
                             btnGet.isEnabled = true
                             btnCopy.isEnabled = true
-                            if (state.shouldShowToast) Toaster.showShort("获取成功")
                             etAccount.setText(state.user.data.webTeleAccountName)
                             etPassword.setText(state.user.data.teleAccountPassword)
                         }
                         is UiState.Error -> {
                             btnGet.isEnabled = true
                             btnCopy.isEnabled = true
-                            if (state.shouldShowToast) Toaster.showShort("网络请求失败")
                         }
                     }
                 }
@@ -84,41 +83,55 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun observeMessages() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.messages.collect { Toaster.showShort(it) }
+            }
+        }
+    }
+
     private fun onGetClicked() {
         if (!btnGet.isEnabled) return
 
-        val raw = etHost.text.toString().trim().ifEmpty { DEFAULT_HOST }
-        val host = if (raw.startsWith("http")) raw else "http://$raw"
-        val url = host.trimEnd('/') + "/"
+        val baseUrl = HostUrl.normalize(etHost.text?.toString())
+        if (baseUrl == null) {
+            Toaster.showShort("地址格式不正确")
+            return
+        }
 
-        val network = connectivityManager.activeNetwork
-        val capabilities = network?.let { connectivityManager.getNetworkCapabilities(it) }
-
+        val capabilities = connectivityManager.activeNetwork
+            ?.let { connectivityManager.getNetworkCapabilities(it) }
         if (capabilities == null) {
             Toaster.showShort("当前无网络连接")
             return
         }
 
         when {
-            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> {
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN) ->
                 Toaster.showShort("请关闭你的代理")
-            }
             capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
-                viewModel.queryUser(url)
-            }
-            else -> {
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) ->
+                viewModel.queryUser(baseUrl.toString())
+            else ->
                 Toaster.showShort("当前网络类型不支持")
-            }
         }
     }
 
     private fun onCopyClicked() {
-        val password = etPassword.text.toString()
+        val password = etPassword.text?.toString().orEmpty()
         if (password.isEmpty()) {
             Toaster.showShort("当前密码为空，请先获取密码")
             return
         }
-        clipboardManager.setPrimaryClip(ClipData.newPlainText("password", password))
+        val clip = ClipData.newPlainText("password", password)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            clip.description.extras = PersistableBundle().apply {
+                putBoolean(ClipDescription.EXTRA_IS_SENSITIVE, true)
+            }
+        }
+        clipboardManager.setPrimaryClip(clip)
+        Toaster.showShort("已复制到剪贴板")
     }
 }
